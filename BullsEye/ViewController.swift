@@ -84,8 +84,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startOver() {
+        
         startNewGame()
-    
+        //creating a subtle fade animation for the slide to re-center its position
+        let transition = CATransition()
+        transition.type = CATransitionType.fade
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        view.layer.add(transition, forKey: nil)
+
+
     }
     
     func startNewRound() {
@@ -100,12 +108,7 @@ class ViewController: UIViewController {
         round = 0
         startNewRound()
         
-        //creating a subtle fade animation for the slide to re-center its position
-        let transition = CATransition()
-        transition.type = CATransitionType.fade
-        transition.duration = 1
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        view.layer.add(transition, forKey: nil)
+
         
     }
     
